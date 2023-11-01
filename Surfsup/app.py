@@ -14,7 +14,7 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///hawaii.sqlite")
+engine = create_engine("sqlite:///../Resources/hawaii.sqlite")
 
 
 
@@ -23,7 +23,7 @@ Base = automap_base()
 # reflect the tables
 Base.prepare(autoload_with=engine)
 
-# Save references to each table
+# Save references to each tables
 
 measurement = Base.classes.measurement
 station = Base.classes.station
@@ -140,4 +140,4 @@ def start_stop(start, stop):
     
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5002)
